@@ -3,12 +3,10 @@ const mongoose = require("mongoose");
 const getId = async (req, res, next) => {
   try {
     const usersModel = mongoose.model("users");
-    const data = await usersModel.find(req.query);
+    const data = await usersModel.findOne({trackId:trackId});
     res.status(200).json({
       status: true,
-      result: {
-        data,
-      },
+     massage:"success",
     });
   } catch (error) {
     res.status(400).json({
