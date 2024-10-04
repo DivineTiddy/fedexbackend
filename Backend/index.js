@@ -26,7 +26,7 @@ app.use("/api/users", userRoute);
 app.all("*", (req, res, next) => {
   res.status(404).json({
     status: "failed",
-    massage: "404 Not found",
+    massage: "Not tiddy",
   });
 });
 app.listen(port, () => {
