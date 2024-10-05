@@ -6,15 +6,13 @@ const getId = async (req, res) => {
   try {
     const data = await usersModel.findById(req.params.id);
     res.status(200).json({
-      status: "success",
-      result: {
-        data,
-      },
+      status: "Done",
+      result: data,
     });
   } catch (error) {
     res.status(404).json({
-      status: "fail",
-      message: error.message,
+      status: "failed",
+      result: error.message,
     });
   }
 };

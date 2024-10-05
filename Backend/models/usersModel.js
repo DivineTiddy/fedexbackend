@@ -11,7 +11,7 @@ const usersSchema = new mongoose.Schema({
   //   unique: true,
   // },
   trackId: {
-    type: Number,
+    type: String,
   },
   delivered: {
     type: String,
