@@ -1,23 +1,20 @@
 const mongoose = require("mongoose");
 
-const getId = async (req, res, next) => {
+const getId = async (req, res) => {
+  const usersModel = mongoose.model("users");
+
   try {
-    const usersModel = mongoose.model("users");
-    const data = await usersModel.findOne({ trackId: trackId });
-    if (data) {
-      res.status(200).json({
-        status: true,
-        result: {
-          data,
-        },
-      });
-    }else{
-      throw "invalid track"
-    }
+    const data = await usersModel.findById(req.params.id);
+    res.status(200).json({
+      status: "success",
+      result: {
+        data,
+      },
+    });
   } catch (error) {
-    res.status(400).json({
-      massage: " failed",
-      status: error.massage,
+    res.status(404).json({
+      status: "fail",
+      message: error.message,
     });
   }
 };

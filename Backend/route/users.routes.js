@@ -4,7 +4,7 @@ const addItems = require("../controller/addItem");
 
 const userRoute = express.Router();
 
-userRoute.get("/data", getId);
+userRoute.get("/:id", getId);
 userRoute.post("/add", addItems);
 
 module.exports = userRoute;
